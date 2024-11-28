@@ -14,7 +14,7 @@ browser.downloads.onCreated.addListener(
             rules = data.rules || [];
             let mimeToFormat = {
                 "image/png": "png",
-                "image/jpeg": "jpg",
+                "image/jpeg": "jpeg",
                 "image/webp": "webp",
                 "image/bmp": "bmp",
                 "image/x-icon": "ico",
