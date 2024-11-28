@@ -9,7 +9,7 @@ document.getElementById('addRuleBtn').addEventListener('click', () => {
     sourceSelect.innerHTML = `
         <option disabled selected>Select Source Format</option>
         <option value="png">PNG</option>
-        <option value="jpg">JPG</option>
+        <option value="jpeg">JPG</option>
         <option value="webp">WebP</option>
         <option value="bmp">BMP</option>
         <option value="ico">ICO</option>
@@ -24,7 +24,7 @@ document.getElementById('addRuleBtn').addEventListener('click', () => {
     targetSelect.innerHTML = `
         <option disabled selected>Select Target Format</option>
         <option value="png">PNG</option>
-        <option value="jpg">JPG</option>
+        <option value="jpeg">JPG</option>
         <option value="webp">WebP</option>`;
 
     let removeButton = document.createElement('button');
@@ -87,7 +87,7 @@ window.onload = () => {
             sourceSelect.innerHTML = `
                 <option disabled>Select Source Format</option>
                 <option value="png">PNG</option>
-                <option value="jpg">JPG</option>
+                <option value="jpeg">JPG</option>
                 <option value="webp">WebP</option>
                 <option value="bmp">BMP</option>
                 <option value="ico">ICO</option>
@@ -103,7 +103,7 @@ window.onload = () => {
             targetSelect.innerHTML = `
                 <option disabled>Select Target Format</option>
                 <option value="png">PNG</option>
-                <option value="jpg">JPG</option>
+                <option value="jpeg">JPG</option>
                 <option value="webp">WebP</option>`;
             targetSelect.querySelector(`option[value="${rule.target}"]`).selected = true;
 

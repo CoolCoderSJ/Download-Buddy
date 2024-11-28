@@ -6,7 +6,7 @@ async function handleMessages(message) {
     }
   
     if (message.type === 'convertUrl') {
-      const { url, filename } = message.data;
+      const { url, filename, target } = message.data;
       
       let img = document.createElement('img');
       img.crossOrigin = 'anonymous';
@@ -17,7 +17,7 @@ async function handleMessages(message) {
           canvas.height = img.height;
           let ctx = canvas.getContext('2d');
           ctx.drawImage(img, 0, 0);
-          let dataURL = canvas.toDataURL('image/png');
+          let dataURL = canvas.toDataURL(`image/${target}`);
           let blob = dataURItoBlob(dataURL);
           let url = URL.createObjectURL(blob);
             chrome.runtime.sendMessage({

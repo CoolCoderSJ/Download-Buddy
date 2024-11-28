@@ -29,18 +29,35 @@ chrome.downloads.onCreated.addListener(
         console.log("Downloaded: " + downloadItem.finalUrl);
         console.log("Downloaded: " + downloadItem.mime);
 
-        if (downloadItem.mime == "image/webp") {
-            let url = downloadItem.finalUrl;            
-            let filename = downloadItem.filename || "image.png";
-            chrome.downloads.cancel(downloadItem.id);   
-
-            await setupOffscreenDocument('offscreen.html');
-            chrome.runtime.sendMessage({
-                type: 'convertUrl',
-                target: 'offscreen',
-                data: { url, filename }
-            });
-        }
+        let rules = [];
+        chrome.storage.sync.get('rules', (data) => {
+            rules = data.rules || [];
+            let mimeToFormat = {
+                "image/png": "png",
+                "image/jpeg": "jpg",
+                "image/webp": "webp",
+                "image/bmp": "bmp",
+                "image/x-icon": "ico",
+                "image/tiff": "tiff",
+                "image/avif": "avif"
+            }
+    
+            rules.forEach(async rule => {
+                console.log(rule.source, mimeToFormat[downloadItem.mime]);
+                if (rule.source == mimeToFormat[downloadItem.mime]) {
+                    let url = downloadItem.finalUrl;
+                    let filename = downloadItem.filename || `image.${rule.target}`;
+                    chrome.downloads.cancel(downloadItem.id);
+    
+                    await setupOffscreenDocument('offscreen.html');
+                    chrome.runtime.sendMessage({
+                        type: 'convertUrl',
+                        target: 'offscreen',
+                        data: { url, filename, target: rule.target }
+                    });
+                }
+            })
+        });
     }    
 )
 
