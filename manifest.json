@@ -1,0 +1,19 @@
+{
+    "manifest_version": 3,
+    "name": "Download WebP as PNG",
+    "description": "Convert your WebP images to PNG format before downloading.",
+    "version": "1.0",
+    "background": {
+        "service_worker": "service-worker.js",
+        "type": "module"
+    },
+    "permissions": [
+        "downloads",
+        "storage",
+        "activeTab",
+        "offscreen"
+    ],
+    "host_permissions": [
+    "<all_urls>"
+  ]
+}
