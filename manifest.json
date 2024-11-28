@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
-    "name": "Download WebP as PNG",
-    "description": "Convert your WebP images to PNG format before downloading.",
+    "name": "Download Buddy",
+    "description": "Convert your images to any format automatically when downloading.",
     "version": "1.0",
     "background": {
         "service_worker": "service-worker.js",
