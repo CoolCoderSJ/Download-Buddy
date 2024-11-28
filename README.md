@@ -1,8 +1,7 @@
 # Download Buddy
 Convert your images automatically on download!
 
-### Demo
-![Demo](https://sharex.shuchir.dev/u/G78KXn.mp4)
+[Demo](https://sharex.shuchir.dev/u/G78KXn.mp4)
 
 ## Installation
 1. Clone this repository
